@@ -1,0 +1,1015 @@
+:root {
+  --color-hersheys: #381216;
+  --color-chinese-silver: #cdc3c7;
+  --color-chinese-falcon: #6d5b62;
+  --color-dark-raspberry: #88254c;
+  --color-muskovit: #eaddcd;
+  --color-perlmutt-staub: #efe5d9;
+  --color-grey: #646464;
+  --color-lightgrey: lightgrey;
+  --color-raisin-black: #232323;
+  --maximal-width: 1920px;
+  /* Original-Foto ist 530pxx533px groß - 33*16=528px */
+  --circle-size: 33rem;
+}
+
+/** Breakpoints */
+/** 1400px oder breiter - große Bildschirme */
+/** Damit Kreise proportional größer werden */
+/* @media (min-width: 112em) {} */
+/** 1200px oder schmaler - Desktop-Displays */
+/* @media (max-width: 75em) {} */
+/** 992px oder schmaler */
+/* @media (max-width: 62em) {} */
+/** 768px oder schmaler - Tablet Displays */
+/* @media (max-width: 48em) {} */
+/** 576px oder schmaler - Mobile Displays */
+/* @media (max-width: 36em) {} */
+
+/*CSS-Datei befindet sich hier:
+https://fonts.googleapis.com/css2?family=Jost:ital,wght@0,100..900;1,100..900&display=swap*/
+@font-face {
+  font-family: 'Jost';
+  font-style: italic;
+  font-weight: 100 900;
+  /*swap = darf ausgetauscht werden, falls nicht geladen werden konnte*/
+  font-display: swap;
+  src: url(../fonts/Jost/Jost-Italic-VariableFont_wght.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: 'Jost';
+  font-style: normal;
+  font-weight: 100 900;
+  font-display: swap;
+  src: url(../fonts/Jost/Jost-VariableFont_wght.woff2) format("woff2");
+}
+
+@font-face {
+  font-family: "Galada";
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: url(../fonts/Galada/Galada-Regular.ttf) format("truetype");
+}
+
+*,
+::after,
+::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  width: 100%;
+  font-family: "Jost", sans-serif;
+  font-style: normal;
+  color: var(--color-hersheys);
+}
+
+body{
+  background-color: var(--color-lightgrey);
+}
+
+.general-container{
+  width: 100%;
+  max-width: var(--maximal-width); /*bei größeren Bildschirmen darf nicht größer als 1400px sein*/
+  margin-left: auto;
+  margin-right: auto;
+  background-color: var(--color-perlmutt-staub);
+}
+
+.header-section {
+  width: 100%;
+  height: 45vw;  /* optische Proportionen */
+  max-height: calc(var(--maximal-width) * 0.45); /* da height von vw abhängig ist, wird der Kreis bei großen Bildschirmen unproportional groß */
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding-left: 12%;
+  padding-right: 12%;
+  padding-top: 1rem;
+}
+
+@media (max-width: 75em) {
+  .header-section {
+    padding-left: 5%;
+    padding-right: 5%;
+    height: auto;
+  }
+}
+
+@media (max-width: 62em) {
+  .header-section {
+    padding-left: 5%;
+    padding-right: 5%;
+    height: auto;
+  }
+}
+
+@media (max-width: 48em) {
+  .header-section {
+    flex-direction: column-reverse;
+    height: auto;
+  }
+}
+
+@media (max-width: 36em) {
+  .header-section {
+    flex-direction: column-reverse;
+    height: auto;
+  }
+}
+
+.header-photo-circle {
+  height: var(--circle-size);
+  width: var(--circle-size);
+  
+  background-image: url(../img/Bewerbung004_q_stift.png);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  transition: background 0.8s ease-in-out;
+  clip-path: circle(49%);
+}
+
+.header-photo-circle:hover {
+  background-image: url(../img/Bewerbung004_q.jpg);
+}
+
+/* TODO: Das Bild ist vertikal nicht mittig */
+@media (max-width: 62em) {
+  .header-photo-circle {
+    width: 45vw;
+    height: 45vw;
+    margin: 1rem 1rem;
+  }
+}
+
+@media (max-width: 48em) {
+  .header-photo-circle {
+    width: 70vw;
+    height: 70vw;
+    margin: 1rem 1rem;
+  }
+}
+
+@media (max-width: 36em) {
+  .header-photo-circle {
+    width: 90vw;
+    height: 90vw;
+    margin: 1rem 1rem;
+  }
+}
+
+.header-welcome-container {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+@media (max-width: 48rem) {
+  .header-welcome-container {
+    margin: 1rem 2rem 1rem 2rem;
+    padding: 1rem 1rem;
+  }
+}
+
+@media (max-width: 36em) {
+  .header-welcome-container {
+    margin: 1rem 2rem 1rem 2rem;
+    padding: 1rem 1rem;
+  }
+}
+
+.header-welcome-p {
+  /* margin-top: 4rem; */
+  text-align: center;
+  font-family: "Galada", cursive;
+  font-weight: 400;
+  font-size: 2rem;
+}
+
+.header-welcome-name {
+  /* font-family: "Sacramento"; */
+  font-family: "Galada", cursive;
+  font-weight: 400;
+  font-size: 5rem;
+
+  animation-name: animate-name;
+  animation-duration: 4s;
+  animation-timing-function: ease-in-out;
+  animation-iteration-count: infinite;
+}
+
+@media (max-width: 62em) {
+  .header-welcome-name {
+    font-size: 3.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .header-welcome-name {
+    font-size: 3.5rem;
+  }
+}
+
+/* @keyframes animate-name {
+  0%, 100%{
+    font-size: 4rem;
+  }
+  50%{
+    font-size: 4.5rem;
+  }
+} */
+
+/***********************************************************   CV START ***********************************************************/
+
+  /* Variante mit linaer-gradient()
+    background-image: linear-gradient(
+      -5deg,
+      transparent 50.1%,
+      var(--color-perlmutt-staub) 49.9%
+    ),
+    linear-gradient(5deg, var(--color-perlmutt-staub) 49.9%, transparent 50.1%),
+    url(../img/ImageWorkplace1.jpg);
+  background-size: cover, cover, cover;
+  background-repeat: no-repeat, no-repeat, no-repeat;
+  background-position: 100% 0%, 0% 100%, center center, center center;
+  background-size: 100vw 10vw, 100vw 10vw, cover, cover;
+  background-attachment: scroll, scroll, scroll;
+  height: 45vw; */
+
+.cv-section {
+  width: 100%;
+  height: 60vw; /* soll etwas größer sein als header_section, wegen Schrägen */
+  max-height: calc(var(--maximal-width) * 0.60);
+
+  display: flex;
+  justify-content: right;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+
+  /* linear-gradient(to left, rgba(239,229,217, 0.4) 50%, rgba(239,229,217, 0.1) 100%),  */
+  background-image:linear-gradient(to left, rgba(239,229,217, 0.4) 50%, rgba(239,229,217, 0.1) 100%), 
+   url(../img/hintergrund3.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: scroll;
+  clip-path: polygon(0% 14%, 100% 0%, 100% 100%, 0% 86%);
+}
+
+
+@media (max-width: 75em) {
+  .cv-section {
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 60vw;
+  }
+}
+
+@media (max-width: 62em) {
+  .cv-section {
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 60vw;
+  }
+}
+
+@media (max-width: 48em) {
+  .cv-section {
+    /* height: var(--circle-size); */
+    height: auto;
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 36em) {
+  .cv-section {
+    height: auto;
+    flex-direction: column;
+  }
+}
+
+
+.cv-section-text-circle {
+  height: 80%;
+  width: 50%;
+  max-height: calc(var(--maximal-width) * 0.50);
+  max-width: calc(var(--maximal-width) * 0.50);
+  padding: 10% 10%;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background-color: var(--color-perlmutt-staub);
+  /* opacity: 0.7; */
+  clip-path: circle(48%);
+}
+
+@media (min-width: 112em) {
+  .cv-section-text-circle{
+    min-height: calc(var(--maximal-width) * 0.45);
+    min-width: calc(var(--maximal-width) * 0.45); 
+  }
+}
+
+@media (max-width: 75em) {
+  .cv-section-text-circle {
+    width: 45vw;
+    height: 45vw;
+  }
+}
+
+@media (max-width: 62em) {
+  .cv-section-text-circle {
+    width: 45vw;
+    height: 45vw;
+  }
+}
+
+@media (max-width: 48em) {
+  .cv-section-text-circle {
+    width: 70vw;
+    height: 70vw;
+    min-width: auto;
+    min-height: auto;
+    max-height: auto;
+    max-width: auto;
+  }
+}
+
+@media (max-width: 36em) {
+  .cv-section-text-circle {
+    width: 90vw;
+    height: 90vw;
+    min-width: auto;
+    min-height: auto;
+    max-height: auto;
+    max-width: auto;
+  }
+}
+
+.cv-section-text-circle a.link{
+  text-shadow: 0 0 1px lightgray;
+  color: var(--color-chinese-falcon);
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.cv-section-text-circle a.link:hover{
+  font-weight: 700;
+  text-shadow: 0 0 8px white;
+}
+
+.paragraph-inside-circle {
+  padding-bottom: 1rem;
+  font-size: 1.25rem;
+}
+
+@media (min-width: 112em) {
+  .paragraph-inside-circle {
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 75em) {
+  .paragraph-inside-circle {
+    font-size: 1rem;
+  }
+}
+
+.cv-section-buttons-container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 0rem 1rem;
+  margin: 0rem 1rem;
+}
+
+@media (max-width: 36em) {
+  .cv-section-buttons-container {
+    flex-direction: column;
+  }
+}
+
+.button-main {
+  padding: 1rem;
+  margin: 0.5rem;
+  width: 10rem;
+  min-width: 10rem;
+  text-align: center;
+  font-weight: 700;
+  text-decoration: none;
+  text-transform: uppercase;
+  border-radius: 2rem;
+  border-radius: 1000rem;
+  color: var(--color-hersheys);
+  background-color: var(--color-chinese-silver);
+
+  background-image: linear-gradient(to bottom, var(--color-chinese-silver) 50%,
+  rgba(179, 169, 173, 0.4)  75%,
+  rgba(109, 91, 98, 0.4) 100%);
+}
+
+@media (max-width:  48em) {
+  .button-main {
+    width: 8rem;
+    min-width: auto;
+  }
+}
+
+@media (max-width:  36em) {
+  .button-main {
+    width: 8rem;
+    min-width: auto;
+  }
+}
+
+.button-main:hover{
+  background-image: linear-gradient(to top, var(--color-chinese-silver) 50%,
+  rgba(179, 169, 173, 0.4)  75%,
+  rgba(109, 91, 98, 0.4) 100%);
+}
+
+/********************************************  PROJECTS START  ********************************************/
+
+.projects_section {
+  width: 100%;
+  height: 60vw;
+  max-height: calc(var(--maximal-width) * 0.60);
+  background-color: var(--color-perlmutt-staub);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+}
+
+@media (max-width: 75em) {
+  .projects_section {
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 60vw;
+  }
+}
+
+@media (max-width: 62em) {
+  .projects_section{
+    flex-direction: column;
+    flex-direction: column-reverse;
+    padding-left: 5%;
+    padding-right: 5%;
+    height: auto;
+  }
+}
+
+@media (max-width: 48em) {
+  .projects_section {
+    flex-direction: column;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+}
+
+@media (max-width: 36em) {
+  .projects_section{
+    flex-direction: column;
+    flex-direction: column-reverse;
+    height: auto;
+  }
+}
+
+.projects_section__circle {
+  position: relative;
+  /* background-color: var(--color-muskovit);
+  background-image: url(../img/wpf.svg);
+  background-position: 50% 50%;
+  background-size: content;
+  background-repeat: no-repeat;
+  background-attachment: scroll; */
+  clip-path: circle(48%);
+  object-fit: contain;
+
+  background-color: var(--color-muskovit);
+  /* color: #cdc3c7; */
+
+
+  height: 80%; /* soll gleich groß sein wie Kreis in cv-section*/
+  width: 50%;
+  max-height: calc(var(--maximal-width) * 0.50);
+  max-width: calc(var(--maximal-width) * 0.50);
+  padding: 10% 10%;
+}
+
+@media (min-width: 112em) {
+  .projects_section__circle{
+    min-height: calc(var(--maximal-width) * 0.45);
+    min-width: calc(var(--maximal-width) * 0.45); 
+  }
+}
+
+@media (max-width: 75em) {
+  .projects_section__circle {
+    width: 45vw;
+    height: 45vw;
+  }
+}
+
+@media (max-width: 62em) {
+  .projects_section__circle{
+    width: 45vw;
+    height:  45vw;
+  }
+}
+
+@media (max-width: 48em) {
+  .projects_section__circle {
+    width: 70vw;
+    height: 70vw;
+    min-width: auto;
+    min-height: auto;
+    max-height: auto;
+    max-width: auto;
+  }
+}
+
+@media (max-width: 36em) {
+  .projects_section__circle {
+    width: 90vw;
+    height: 90vw;
+    min-width: auto;
+    min-height: auto;
+    max-height: auto;
+    max-width: auto;
+  }
+}
+
+.projects_section__img{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  padding: 15%;
+}
+
+.projects_section__img--c4{
+  animation-name: animate-img--c4;
+  animation-timing-function: ease-in-out;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animate-img--c4{
+  0%, 20.5%{
+    opacity: 1;
+  }
+  25.5%, 100%{
+    opacity: 0;
+  }
+}
+
+.projects_section__img--wpf{
+  animation-name: animate-img--wpf;
+  animation-timing-function: ease-in-out;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animate-img--wpf{
+  0%, 30.5%{
+    opacity: 0;
+  }
+  35.5%, 55.5%{
+    opacity: 1;
+  }
+ 60.5%, 100%{
+    opacity: 0;
+  }
+}
+
+.projects_section__img--mariadb{
+  animation-name: animate-img--mariadb;
+  animation-timing-function: ease-in-out;
+  animation-duration: 10s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes animate-img--mariadb{
+  0%, 65.5%{
+    opacity: 0;
+  }
+  70.5%, 90.5%{
+    opacity: 1;
+  }
+  95.5%, 100%{
+    opacity: 0;
+  }
+}
+
+.projects_section__text-container{
+  width: 40%;
+  height: var(--circle-size);
+  max-height: calc(var(--maximal-width) * 0.50);
+  max-width: calc(var(--maximal-width) * 0.50);
+
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+@media (max-width: 36em) {
+  .projects_section__text-container {
+    width: 25%;
+    text-align: center;
+    height: auto;
+  }
+}
+
+@media (max-width: 62em) {
+  .projects_section__text-container {
+    width: 100%;
+    height: auto;
+    padding: 5%;
+  }
+}
+
+.projects_section__text-container a.link{
+  text-shadow: 0 0 3px lightgray;
+  color: var(--color-chinese-falcon);
+  font-weight: 500;
+  text-decoration: none;
+  transition: 0.5s;
+}
+
+.projects_section__text-container a.link:hover{
+  font-weight: 700;
+  text-shadow: 0 0 8px white;
+}
+
+/********************************************  PROJECTS END  ********************************************/
+
+.contact_section {
+  width: 100%;
+  height: 55vw;
+  max-height: calc(var(--maximal-width) * 0.55);
+  display: flex;
+  justify-content: end;
+  align-items: center;
+
+  background-image: linear-gradient(
+      to left,
+      rgba(239, 229, 217, 0.5) 50%,
+      rgba(239, 229, 217, 0) 100%
+    ),
+    url(../img/hintergrund9.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: cover;
+  background-attachment: scroll;
+  clip-path: polygon(0% 14%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 48em) {
+  .contact_section {
+    height: var(--circle-size);
+  }
+}
+
+@media (max-width: 36em) {
+  .contact_section {
+    height: var(--circle-size);
+  }
+}
+
+.contact_section__circle {
+  height: var(--circle-size);
+  width: var(--circle-size);
+  max-height: calc(var(--maximal-width) * 0.45);
+  max-width: calc(var(--maximal-width) * 0.45);
+  margin-right: 5rem;
+  padding: 2rem;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background-color: var(--color-perlmutt-staub);
+  /* opacity: 0.7; */
+  clip-path: circle(48%);
+}
+
+@media (min-width: 112em) {
+  .contact_section__circle{
+    min-height: calc(var(--maximal-width) * 0.45);
+    min-width: calc(var(--maximal-width) * 0.45); 
+  }
+}
+
+@media (max-width: 48em) {
+  .contact_section__circle {
+    width: 70vw;
+    height: 70vw;
+    min-width: auto;
+    min-height: auto;
+    max-height: auto;
+    max-width: auto;
+    margin: 3rem 1rem 3rem 1rem;
+  }
+}
+
+@media (max-width: 36em) {
+  .contact_section__circle {
+    width: 90vw;
+    height: 90vw;
+    min-width: auto;
+    min-height: auto;
+    max-height: auto;
+    max-width: auto;
+    margin: 1rem 1rem;
+  }
+}
+
+.contact_section__circle--container {
+  width: 80%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact_section__contact_form{
+  text-align: center;
+  overflow: hidden;
+}
+
+.form-control {
+  width: 100%;
+  height: 20%;
+  border-radius: 0;
+  border: none;
+  border-bottom: 2px solid var(--color-dark-raspberry);
+  background-color: var(--color-perlmutt-staub);
+}
+
+.form-control:focus {
+  border-bottom: 2px solid var(--color-dark-raspberry);
+  border-width: 2.5px;
+  outline: none;
+}
+
+.contact_section__contact_form input{
+  width: 100%;
+  font-family: 'Jost';
+  color: var(--color-hersheys);
+  font-size: 1.2rem;
+  padding: 0rem 0rem;
+  margin: 0.5rem 2rem;
+}
+
+.contact_section__contact_form textarea {
+  width: 100%;
+  font-family: 'Jost';
+  color: var(--color-hersheys);
+  font-size: 1.2rem;
+  padding: 0rem 0rem;
+  margin: 0.5rem 2rem;
+  resize: none;
+}
+
+.contact_send-button {
+  padding: 1rem;
+  margin: 0.5rem;
+  width: 10rem;
+
+  text-align: center;
+
+  font-family: 'Jost';
+  font-size: 1rem;
+  font-weight: 700;
+
+  color: var(--color-hersheys);
+  background-color: var(--color-chinese-silver);
+  border-radius: 2rem;
+  border-style: none;
+}
+
+/********************************************** HOBBY STASRT **********************************************/
+
+.hobby_section {
+  position: relative;
+  width: 100%;
+  height: 60vw;
+  max-height: calc(var(--maximal-width) * 0.6);
+
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  padding-left: 10%;
+  padding-right: 10%;
+  padding-top: 4rem;
+  padding-bottom: 4rem;
+  clip-path: polygon(0% 14%, 100% 0%, 100% 100%, 0% 100%);
+}
+
+@media (max-width: 75em) {
+  .hobby_section {
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 60vw;
+  }
+}
+
+@media (max-width: 62em) {
+  .hobby_section  {
+    padding-left: 5%;
+    padding-right: 5%;
+    height: 60vw;
+  }
+}
+
+@media (max-width: 48em) {
+  .hobby_section  {
+    height: 100%;
+    flex-direction: column-reverse;
+    padding-top: 0;
+    padding-bottom: 0;
+    clip-path: none;
+  }
+}
+
+@media (max-width: 36em) {
+  .hobby_section  {
+    height: 100%;
+    flex-direction: column-reverse;
+    padding-top: 0;
+    padding-bottom: 0;
+    clip-path: none;
+  }
+}
+
+.hobby_section__video-container{
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 1;
+  background-color: rgba(239, 229, 217, 0.5);
+}
+
+@media (max-width: 48em) {
+  .hobby_section__video-container {
+    position: relative;
+    width: 100%;
+  }
+}
+
+@media (max-width: 36em) {
+  .hobby_section__video-container {
+    position: relative;
+    width: 100%;
+  }
+}
+
+/*Video-Format: 1920:1080*/
+.hobby_section__video{
+  position: absolute;
+  width: 100%;
+
+  @supports (object-fit: cover) and (object-position: center center){
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+  }
+
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 0;
+  filter: grayscale(45%);
+}
+
+.hobby_section__text{
+  position: relative;
+  z-index: 2;
+  height: 80%;
+  width: 50%;
+  max-height: calc(var(--maximal-width) * 0.50);
+  max-width: calc(var(--maximal-width) * 0.50);
+  padding: 10% 10%;
+  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  text-align: center;
+
+  background-color: var(--color-perlmutt-staub);
+  text-shadow: var(--color-lightgrey) 0 0 3px;
+  opacity: 0.7;
+  clip-path: circle(48%);
+}
+
+@media (min-width: 112em) {
+  .hobby_section__text {
+    min-height: calc(var(--maximal-width) * 0.5);
+    min-width: calc(var(--maximal-width) * 0.5); 
+  }
+}
+
+@media (max-width: 75em) {
+  .hobby_section__text  {
+    width: 45vw;
+    height: 45vw;
+  }
+}
+
+@media (max-width: 62em) {
+  .hobby_section__text {
+    width: 45vw;
+    height: 45vw;
+  }
+}
+
+@media (max-width: 48em) {
+  .hobby_section__text  {
+    width: auto;
+    height: auto;
+    min-width: auto;
+    min-height: auto;
+    max-height: auto;
+    max-width: auto;
+    clip-path: none;
+  }
+}
+
+@media (max-width: 36em) {
+  .hobby_section__text {
+    width: auto;
+    height: auto;
+    min-width: auto;
+    min-height: auto;
+    max-height: auto;
+    max-width: auto;
+    clip-path: none;
+  }
+}
+
+.hobby_section__paragraph {
+  font-size: 1.2rem;
+} 
+
+@media (min-width: 112em) {
+  .hobby_section__paragraph {
+    font-size: 1.5rem;
+  } 
+}
+@media (max-width: 75em) {
+  .hobby_section__paragraph {
+    font-size: 0.85rem;
+  } 
+}
+
+@media (max-width: 62em) {
+  .hobby_section__paragraph {
+    font-size: 0.85rem;
+  } 
+}
+
+@media (max-width: 48em) {
+  .hobby_section__paragraph {
+    font-size: 1rem;
+  } 
+}
+
+
+
+
+

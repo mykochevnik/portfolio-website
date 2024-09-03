@@ -1,0 +1,35 @@
+/*CSS-Datei befindet sich hier:
+https://fonts.googleapis.com/css2?family=Galada&family=Istok+Web:ital,wght@0,400;0,700;1,400;1,700&display=swap*/
+@font-face {
+    font-family: "Istok Web", sans-serif;
+    font-style: normal;
+    font-weight: 400;
+    /*swap = darf ausgetauscht werden, falls nicht geladen werden konnte*/
+    font-display: swap;
+    src: url(../fonts/Istok_Web/IstokWeb-Regular.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Istok Web", sans-serif;
+    font-style: normal;
+    font-weight: 700;
+    /*swap = darf ausgetauscht werden, falls nicht geladen werden konnte*/
+    font-display: swap;
+    src: url(../fonts/Istok_Web/IstokWeb-Bold.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Istok Web";
+    font-style: italic;
+    font-weight: 400;
+    font-display: swap;
+    src: url(../fonts/Istok_Web/IstokWeb-Italic.ttf) format("truetype");
+  }
+  
+  @font-face {
+    font-family: "Istok Web";
+    font-style: italic;
+    font-weight: 700;
+    font-display: swap;
+    src: url(../fonts/Istok_Web/IstokWeb-BoldItalic.ttf) format("truetype");
+  }
