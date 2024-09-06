@@ -6,7 +6,7 @@
   --color-muskovit: #eaddcd;
   --color-perlmutt-staub: #efe5d9;
   --color-grey: #646464;
-  --color-lightgrey: lightgrey;
+  --color-lightgrey: #d3d3d3;
   --color-raisin-black: #232323;
   --maximal-width: 1920px;
   /* Original-Foto ist 530pxx533px groß - 33*16=528px */
@@ -500,12 +500,6 @@ body{
 
 .projects_section__circle {
   position: relative;
-  /* background-color: var(--color-muskovit);
-  background-image: url(../img/wpf.svg);
-  background-position: 50% 50%;
-  background-size: content;
-  background-repeat: no-repeat;
-  background-attachment: scroll; */
   clip-path: circle(48%);
   object-fit: contain;
 
@@ -588,14 +582,14 @@ body{
   }
 }
 
-.projects_section__img--wpf{
-  animation-name: animate-img--wpf;
+.projects_section__img--asp-net{
+  animation-name: animate-img--asp-net;
   animation-timing-function: ease-in-out;
   animation-duration: 10s;
   animation-iteration-count: infinite;
 }
 
-@keyframes animate-img--wpf{
+@keyframes animate-img--asp-net{
   0%, 30.5%{
     opacity: 0;
   }
